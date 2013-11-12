@@ -1,0 +1,30 @@
+<polymer-element name="quote-input-element" extends="input" on-keypress="keypressAction">
+  <script>
+    (function() {
+      var ENTER_KEY = 13;
+      var ESC_KEY = 27;
+      Polymer('quote-input-element', {
+        keypressAction: function(e, detail, sender) {
+          // Listen for enter on keypress but esc on keyup, because
+          // IE doesn't fire keyup for enter.
+          console.log('key');
+          if (e.key === ENTER_KEY) {
+            this.fire('quote-commit');
+          }
+          if (e.key === ESC_KEY) {
+            this.fire('quote-cancel');
+          }
+
+        },
+        keyupAction: function(e, detail, sender) {
+          if (e.key === ESC_KEY) {
+            this.fire('quote-cancel');
+          }
+        },
+        testAction: function(e, detail, sender){
+          console.log(e);
+        }
+      });
+    })();
+  </script>
+</polymer-element>

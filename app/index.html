@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- build:js scripts/vendor/modernizr.js
+        <script src="bower_components/modernizr/modernizr.js"></script> -->
+        <!-- endbuild -->
+
+        <!-- Place your HTML imports here -->
+        <link rel="import" href="elements/quotation.html">
+        <link rel="import" href="elements/quote-adder.html">
+    </head>
+    <body>
+      <div id="main-container" class="container">
+
+        <quote-adder-element></quote-adder-element>
+
+        <div id="quotes-container" class="container">
+
+          <quotation-element addedBy="Sam" author="Abraham Lincoln">
+            <span>Nearly all men can stand adversity, but if you want to test a man's character, give him power.</span>
+          </quotation-element>
+
+          <quotation-element addedBy="Sam" author="Buddha">
+            <span>Thousands of candles can be lighted from a single candle, and the life of the candle will not be shortened.</span>
+          </quotation-element>
+
+          <quotation-element addedBy="Sam" author="Albert Einstein">
+            <span>If you can't explain it simply, you don't understand it well enough.</span>
+          </quotation-element>
+
+          <quotation-element addedBy="Sam" author="Thomas A. Edison">
+            <span>Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.</span>
+          </quotation-element>
+
+        </div>
+
+      </div>
+
+
+      <script>
+        document.body.style.opacity = 0;
+        document.addEventListener('WebComponentsReady', function() {
+          document.body.style.opacity = 1;
+        });
+      </script>
+
+        <!-- build:js scripts/vendor.js -->
+        <script src="bower_components/polymer/polymer.min.js"></script>
+        <!-- endbuild -->
+
+
+</body>
+</html>

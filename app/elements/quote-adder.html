@@ -1,0 +1,63 @@
+<polymer-element name="quote-adder-element"  constructor="QuoteAdderElement" attributes="">
+  <template>
+    <style>
+      @host { :scope {display: block !important;} }
+      #quote-text {
+        display: block;
+        width: 500px;
+      }
+      .quote-input {
+        line-height: 1.2em;
+        width: 246px;
+        font-size: 1.6em;
+      }
+    </style>
+    <form id="quote-form">
+      <input id="quote-publisher" class="quote-input" placeholder="name" autofocus
+             on-keypress="{{ nextFieldAction }}" />
+      <input id="quote-author" class="quote-input" placeholder="author"
+             on-keypress="{{ nextFieldAction }}" />
+      <input id="quote-text" class="quote-input" placeholder="quote"
+                on-keypress="{{ quoteCommitAction }}" />
+    </form>
+  </template>
+  <script>
+      var ENTER_KEY = 13;
+
+      Polymer('quote-adder-element', {
+        applyAuthorStyles: true,
+        resetStyleInheritance: true,
+        nextFieldAction: function (e, detail, sender) {
+          if (e.keyCode === ENTER_KEY) {
+            sender.nextSibling.nextSibling.focus();
+          }
+        },
+        quoteCommitAction: function (e, detail, sender) {
+          if (e.keyCode === ENTER_KEY) {
+            var publisher = document.getElementById('quote-publisher').value.trim();
+            var author = document.getElementById('quote-author').value.trim();
+            var quote = document.getElementById('quote-text').value.trim();
+
+            /*var XQuote = document.register('quotation-element', {
+              addedBy: publisher,
+              author: author,
+              content: '<span>'+quote+'</span>'
+
+            });*/
+
+            document.getElementById('quote-form').reset();
+            document.getElementById('quote-publisher').focus();
+            var quotationElement = '<quotation-element addedBy="'+publisher+'" author="'+author+'">'+
+                                    '<span>'+quote+'</span></quotation-element>';
+            var container = document.getElementById('quotes-container');
+            //container.insertBefore(XQuote, container.childNodes[0]);
+            container.innerHTML = quotationElement + container.innerHTML;
+          }
+        },
+        created: function() { },
+        enteredView: function() { },
+        leftView: function() { },
+        attributeChanged: function(attrName, oldVal, newVal) { }
+      });
+  </script>
+</polymer-element>

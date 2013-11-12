@@ -1,0 +1,8 @@
+body {
+    background: #fefefe;
+}
+
+/* added to hide custom element content before it's compilation
+.container > quotation-element {
+  display: none;
+}*/

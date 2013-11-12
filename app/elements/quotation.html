@@ -1,0 +1,61 @@
+<link rel="import" href="../bower_components/polymer-ui-elements/polymer-ui-icon/polymer-ui-icon.html">
+
+<polymer-element name="quotation-element"  constructor="quotationElement" attributes="addedBy author" >
+
+  <template>
+
+    <style>
+      @host {
+        :scope {
+          display: block !important;
+          border: 1px solid #dedede;
+          margin-top: 20px;
+          background: #fcfcfc;
+        }
+      }  /*The @host at-rule in a component's <style scoped> tag allows styling the element hosting the shadow DOM.*/
+      .header {
+        padding: 0px 10px;
+        background: #4d98b4;
+        line-height: 24px;
+        color: #fcfcfc;
+      }
+      .quote {
+        padding: 0px 10px 10px 10px;
+        line-height: 60px;
+        font-size: 1.7em;
+      }
+      .author {
+        font-size: .8em;
+        color: #737373;
+        line-height: .8em;
+      }
+      polymer-ui-icon {
+        float: right;
+      }
+    </style>
+
+    <div class="header">
+      <span>Adicionado por <b>{{ addedBy }}</b></span>
+      <polymer-ui-icon icon="close" on-click="{{destroyAction}}"></polymer-ui-icon>
+    </div>
+    <div class="quote">
+      <content select="span"></content>
+      <div class="author">{{ author }}</div>
+    </div>
+
+  </template>
+  <script>
+    Polymer('quotation-element', {
+
+      applyAuthorStyles: true,
+      resetStyleInheritance: false,
+      destroyAction: function() {
+        this.parentNode.removeChild(this);
+      },
+      created: function() { },
+      enteredView: function() { },
+      leftView: function() { },
+      attributeChanged: function(attrName, oldVal, newVal) { }
+    });
+  </script>
+</polymer-element>
