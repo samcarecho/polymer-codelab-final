@@ -1,9 +1,9 @@
 {
-  "name": "codelab",
-  "version": "0.0.0",
+  "name": "polymer-codelab-final",
+  "version": "0.1.0",
   "dependencies": {
-    "modernizr": "~2.6.2",
-    "polymer": "latest"
+    "polymer": "0.0.20131107",
+    "polymer-ui-elements": "0.0.20131108"
   },
   "devDependencies": {}
 }
