@@ -9,5 +9,5 @@ O objetivo do codelab, devido ao curto tempo programado para a execução, é ap
 a curiosidade dos participantes sobre o assunto Web Components e a framework Polymer.
 
 
-Link para o documento das instruções do CodeLab:
+Link para o documento com as instruções do CodeLab:
 http://goo.gl/ySpHQ0
